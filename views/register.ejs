@@ -1,0 +1,15 @@
+<%- include('header') %>
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="text-center mb-4"><h2 class="fw-bold">Register</h2></div>
+        <% if (error) { %> <div class="alert alert-danger"><%= error %></div> <% } %>
+        <% if (success) { %> <div class="alert alert-success"><%= success %></div> <% } else { %>
+        <form action="/register" method="POST">
+            <div class="mb-3"><label class="form-label">Username (ID)</label><input type="text" class="form-control" name="username" required></div>
+            <div class="mb-4"><label class="form-label">Password</label><input type="password" class="form-control" name="password" required></div>
+            <button type="submit" class="btn btn-primary w-100">Register</button>
+        </form>
+        <% } %>
+    </div>
+</div>
+<%- include('footer') %>

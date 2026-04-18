@@ -1,0 +1,119 @@
+<%- include('header') %>
+<main class="main-content">
+<section class="hero-section">
+    <div class="hero-bg-glow"></div>
+    <div class="container position-relative">
+        <div class="row align-items-center gy-5">
+            <div class="col-lg-6">
+                <p class="section-label mb-2">🎵 India's Favourite Bollywood Music Store</p>
+                <h1 class="hero-title">Your Stage.<br>Your <span class="gradient-text">Bollywood</span><br>Soundtrack.</h1>
+                <p class="hero-subtitle mt-3">Browse, discover, and buy high-quality MP3 &amp; WAV versions of your all-time favourite movie songs — instantly.</p>
+                <div class="mt-4 d-flex gap-3 flex-wrap">
+                    <a href="/shop" class="btn btn-primary btn-lg px-4"><i class="bi bi-grid me-2"></i>Browse Songs</a>
+                    <% if (!user) { %>
+                        <a href="/register" class="btn btn-outline-light btn-lg px-4"><i class="bi bi-person-plus me-2"></i>Join Free</a>
+                    <% } %>
+                </div>
+                <div class="hero-stats mt-4">
+                    <div class="hero-stat"><div class="number"><%= stats.total_songs %>+</div><div class="label">Songs</div></div>
+                    <div class="hero-stat"><div class="number"><%= stats.total_singers %>+</div><div class="label">Singers</div></div>
+                    <div class="hero-stat"><div class="number"><%= stats.total_customers %>+</div><div class="label">Customers</div></div>
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-1 d-none d-lg-block">
+                <div class="floating-card-v2 p-4">
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <div class="player-icon-box">
+                            <i class="bi bi-music-note-list text-white fs-3"></i>
+                        </div>
+                        <div>
+                            <div class="fw-bold fs-5">Now Playing</div>
+                            <div class="text-muted-custom">Tum Hi Ho</div>
+                        </div>
+                        <div class="ms-auto">
+                            <i class="bi bi-play-circle-fill fs-1 text-primary-custom"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="waveform-container my-4">
+                        <svg viewBox="0 0 200 40" class="waveform-svg">
+                            <path d="M0,20 Q25,5 50,20 T100,20 T150,20 T200,20" fill="none" stroke="#7c3aed" stroke-width="2" class="wave-path"></path>
+                        </svg>
+                    </div>
+
+                    <div class="player-progress-area mt-4">
+                        <div class="d-flex justify-content-between small text-muted-custom mb-2">
+                            <span>1:45</span>
+                            <span>4:22</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" style="width: 42%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-surface-2">
+    <div class="container">
+        <div class="text-center mb-5">
+            <p class="section-label mb-2">Explore by Mood</p>
+            <h2 class="section-title">Browse Categories</h2>
+        </div>
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 justify-content-center">
+            <% const cats = [
+                {n:'Romantic', e:'💕'}, {n:'Sad', e:'😢'}, {n:'Party', e:'🎉'}, 
+                {n:'Sufi', e:'🌙'}, {n:'Folk', e:'🪘'}, {n:'Patriotic', e:'🇮🇳'}, 
+                {n:'Classical', e:'🎻'}, {n:'Devotional', e:'🕉️'}, {n:'Item', e:'💃'}
+            ]; %>
+            <% cats.forEach(c => { %>
+                <div class="col">
+                    <a href="/shop?cat=<%= c.n %>" class="category-card-link">
+                        <div class="category-card-v2">
+                            <div class="cat-v2-icon"><%= c.e %></div>
+                            <div class="cat-v2-name"><%= c.n %></div>
+                        </div>
+                    </a>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <div>
+                <p class="section-label mb-1">✨ HANDPICKED FOR YOU</p>
+                <h2 class="section-title">Featured Songs</h2>
+            </div>
+            <a href="/shop" class="btn btn-outline-primary btn-sm">View All <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+            <% songs.forEach(function(song) { %>
+            <div class="col song-card-wrapper fade-up">
+                <div class="song-card">
+                    <div class="song-card-img">
+                        <i class="bi bi-music-note-beamed music-icon"></i>
+                        <span class="category-badge"><%- catBadge(song.category) %></span>
+                        <span class="format-badge"><%= song.available_as %></span>
+                    </div>
+                    <div class="song-card-body">
+                        <div class="song-title"><%= song.title %></div>
+                        <div class="song-movie"><i class="bi bi-film"></i> <%= song.movie_name %></div>
+                        <div class="song-singer"><i class="bi bi-mic"></i> <%= song.singers || '—' %></div>
+                    </div>
+                    <div class="song-card-footer">
+                        <span class="price-tag"><%= formatPrice(song.price) %></span>
+                        <a href="/song/<%= song.song_id %>" class="btn btn-buy btn-sm">Details</a>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+</main>
+<%- include('footer') %>

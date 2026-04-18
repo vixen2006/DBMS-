@@ -1,0 +1,77 @@
+<%- include('header') %>
+<main class="main-content">
+<div class="container py-4">
+    <div class="d-flex align-items-center gap-3 mb-4">
+        <a href="/admin" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-left"></i> Back</a>
+        <h1 class="mb-0">Add New Song</h1>
+    </div>
+
+    <div class="admin-card" style="max-width: 800px;">
+        <% if (error) { %> <div class="alert alert-danger"><%= error %></div> <% } %>
+        <% if (success) { %> <div class="alert alert-success"><%= success %></div> <% } %>
+        
+        <form action="/admin/add-song" method="POST">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Song Title</label>
+                    <input type="text" class="form-control" name="title" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Movie Name</label>
+                    <input type="text" class="form-control" name="movie_name" required>
+                </div>
+                
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Price (₹)</label>
+                    <input type="number" step="0.01" class="form-control" name="price" min="0" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Duration (HH:MM:SS)</label>
+                    <input type="text" class="form-control" name="duration" placeholder="00:04:30" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Size (MB)</label>
+                    <input type="number" step="0.01" class="form-control" name="size_mb" min="0" required>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Category</label>
+                    <select class="form-select" name="category" required>
+                        <option value="Romantic">Romantic</option>
+                        <option value="Party">Party</option>
+                        <option value="Sad">Sad</option>
+                        <option value="Sufi">Sufi</option>
+                        <option value="Folk">Folk</option>
+                        <option value="Patriotic">Patriotic</option>
+                        <option value="Classical">Classical</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Available As</label>
+                    <select class="form-select" name="available_as" required>
+                        <option value="MP3">MP3</option>
+                        <option value="WAV">WAV</option>
+                        <option value="Both">Both (MP3, WAV)</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Record Company</label>
+                    <select class="form-select" name="company_id" required>
+                        <option value="" disabled selected>Select Company</option>
+                        <% companies.forEach(function(c) { %>
+                            <option value="<%= c.company_id %>"><%= c.name %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                
+                <div class="col-12 mt-4">
+                    <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Save Song to Database</button>
+                    <p class="text-muted small mt-2 text-center">Note: Singers and Composers are linked automatically via admin panel in standard version. By default, they will appear empty until linked.</p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</main>
+<%- include('footer') %>

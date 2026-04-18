@@ -1,0 +1,36 @@
+<%- include('header') %>
+<main class="main-content">
+<div class="container py-4">
+    <div class="d-flex align-items-center gap-3 mb-4">
+        <a href="/admin" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-left"></i> Back</a>
+        <h1 class="mb-0">Add New Singer</h1>
+    </div>
+
+    <div class="admin-card" style="max-width: 600px;">
+        <% if (error) { %> <div class="alert alert-danger"><%= error %></div> <% } %>
+        <% if (success) { %> <div class="alert alert-success"><%= success %></div> <% } %>
+        
+        <form action="/admin/add-singer" method="POST">
+            <div class="row g-3">
+                <div class="col-12">
+                    <label class="form-label fw-semibold">Singer Name</label>
+                    <input type="text" class="form-control" name="name" required>
+                </div>
+                <div class="col-12">
+                    <label class="form-label fw-semibold">Contact No</label>
+                    <input type="text" class="form-control" name="contact_no" required>
+                </div>
+                <div class="col-12">
+                    <label class="form-label fw-semibold">Address</label>
+                    <textarea class="form-control" name="address" rows="3" required></textarea>
+                </div>
+                <div class="col-12 mt-4">
+                    <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Save Singer</button>
+                    <p class="text-muted small mt-2 text-center">Data will be stored locally in memory until database is connected.</p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</main>
+<%- include('footer') %>

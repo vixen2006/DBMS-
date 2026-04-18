@@ -1,0 +1,22 @@
+<%- include('header') %>
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Welcome Back</h2>
+        </div>
+        <% if (error) { %> <div class="alert alert-danger"><%= error %></div> <% } %>
+        <form action="/login" method="POST">
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control" name="login" required>
+            </div>
+            <div class="mb-4">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        <p class="text-center text-muted small mt-3">Demo: Set up via Database (admin / password)</p>
+    </div>
+</div>
+<%- include('footer') %>

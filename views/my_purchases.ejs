@@ -1,0 +1,27 @@
+<%- include('header') %>
+<main class="main-content">
+<div class="container py-4">
+    <h1 class="mb-4">My Library</h1>
+    <% if (purchases.length === 0) { %>
+        <div class="empty-state"><h4>Your library is empty</h4></div>
+    <% } else { %>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <% purchases.forEach(function(p) { %>
+            <div class="col">
+                <div class="song-card">
+                    <div class="song-card-img"><i class="bi bi-music-note-beamed music-icon"></i><span class="format-badge"><%= p.format_chosen %></span></div>
+                    <div class="song-card-body">
+                        <div class="song-title"><%= p.title %></div>
+                        <div class="song-movie"><i class="bi bi-film"></i> <%= p.movie_name %></div>
+                    </div>
+                    <div class="song-card-footer">
+                        <span class="price-tag"><%= formatPrice(p.amount_paid) %></span>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    <% } %>
+</div>
+</main>
+<%- include('footer') %>
