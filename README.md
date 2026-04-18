@@ -1,4 +1,4 @@
-# 🎵 SwarBazaar — The Ultimate Bollywood Music Experience
+#  SwarBazaar — The Ultimate Bollywood Music Experience
 
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
@@ -9,23 +9,23 @@
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
-### 🕺 For Customers
+###  For Customers
 - **Dynamic Browse**: Search and filter songs by Category, Singer, Movie, or Composer.
 - **Vibrant Hero Section**: Interactive "Now Playing" card with waveform animations.
 - **Mood-Based Exploration**: Browse songs through a grid of categories (Romantic 💕, Sufi 🌙, Party 🎉, etc.).
 - **Digital Library**: Keep track of all your purchased songs in a dedicated "My Purchases" section.
 - **Simplified Auth**: Fast registration requiring only a Username and Password.
 
-### 🔐 For Administrators
+###  For Administrators
 - **Complete Visibility**: Natively view detailed tables for all Singers, Composers, and Record Companies.
 - **Inventory Management**: Add new songs, singers, and composers directly through the UI.
 - **Mock Persistence**: Built-in in-memory database fallback for local development without a live PostgreSQL connection.
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Backend**: Node.js & Express.js
 - **Database**: PostgreSQL (Native Driver: `pg`)
@@ -35,7 +35,7 @@
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Local Development (Demo Mode)
 No database setup is required to test the UI and logic!
@@ -62,7 +62,7 @@ SESSION_SECRET=your_secret_key
 
 ---
 
-## 📊 Database Architecture
+##  Database Architecture
 The project follows a strictly normalized schema ensuring zero data redundancy.
 - **Songs**: Linked to Singers, Composers, and Record Companies.
 - **Purchases**: Tracks transaction history linked to Songs and Customers.
@@ -70,7 +70,7 @@ The project follows a strictly normalized schema ensuring zero data redundancy.
 
 ---
 
-## 👤 Test Credentials
+##  Test Credentials
 | Role | Username | Password |
 | :--- | :--- | :--- |
 | **Admin** | `admin` | `password` |
@@ -78,16 +78,9 @@ The project follows a strictly normalized schema ensuring zero data redundancy.
 
 ---
 
-## 📸 Screenshots
-*(Add your own screenshots here to wow your viewers!)*
 
-1. **Homepage Hero**
-2. **Browse Categories Grid**
-3. **Advanced Admin Dashboard**
 
----
-
-### 🎓 College Project Disclaimer
+###  College Project Disclaimer
 This project was developed as a submission for a Database Management Systems (DBMS) course to demonstrate relational mapping, CRUD operations, and transaction integrity.
 
-**Developed with ❤️ by [Your Name/Vixen]**
+====================================================================================================================================================================
