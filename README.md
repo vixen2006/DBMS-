@@ -14,7 +14,7 @@
 ###  For Customers
 - **Dynamic Browse**: Search and filter songs by Category, Singer, Movie, or Composer.
 - **Vibrant Hero Section**: Interactive "Now Playing" card with waveform animations.
-- **Mood-Based Exploration**: Browse songs through a grid of categories (Romantic 💕, Sufi 🌙, Party 🎉, etc.).
+- **Mood-Based Exploration**: Browse songs through a grid of categories (Romantic , Sufi , Party , etc.).
 - **Digital Library**: Keep track of all your purchased songs in a dedicated "My Purchases" section.
 - **Simplified Auth**: Fast registration requiring only a Username and Password.
 
@@ -83,4 +83,4 @@ The project follows a strictly normalized schema ensuring zero data redundancy.
 ###  College Project Disclaimer
 This project was developed as a submission for a Database Management Systems (DBMS) course to demonstrate relational mapping, CRUD operations, and transaction integrity.
 
-====================================================================================================================================================================
+=========================================================================================================================
